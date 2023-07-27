@@ -25,7 +25,7 @@ def create_app():
     app_conf = Flask(__name__)
     app_conf.config['SQLALCHEMY_DATABASE_URI'] = config('SQLALCHEMY_DATABASE_URI')
     Swagger(app_conf)
-    CORS(app_conf)
+    CORS(app_conf, origins=[config('LIST_CORS')])
 
     db.init_app(app_conf)
     Migrate(app_conf, db)
