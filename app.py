@@ -66,19 +66,28 @@ def create():
 @auth.login_required
 def list_companies():
     page = request.args.get('page', 1, type=int)
-    limit = min(request.args.get('limit', 10, type=int), 50)
+    limit = min(request.args.get('limit', 25, type=int), 50)
     order = request.args.get('order', 'name_company', type=str)
 
     companies = Company.query.order_by(order).all()
 
     if not companies:
-        return make_response({'error': 'Not fund companies'}, 404)
+        return make_response({'error': 'Not found companies'}, 404)
 
+    total_companies = len(companies)
+    total_pages = (total_companies + limit - 1) // limit
     start = (page - 1) * limit
     end = start + limit
     json_result = [company.to_dict() for company in companies[start:end]]
 
-    return make_response(json_result, 200)
+    response_data = {
+        'total_companies': total_companies,
+        'total_pages': total_pages,
+        'current_page': page,
+        'companies': json_result
+    }
+
+    return make_response(response_data, 200)
 
 
 @app.route('/api/edit/', methods=['PUT'])
