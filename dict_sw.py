@@ -2,6 +2,14 @@
 sw_create = {
     "tags": ["API Endpoints"],
     "summary": "Create a new company",
+    "securityDefinitions": {
+        "basicAuth": {
+            "type": "basic"
+        }
+    },
+    "security": [{
+        "basicAuth": []
+    }],
     "description": "Receives a JSON with the company's information, validates the "
                    "CNPJ and saves the company in the database. Returns a JSON with a success or error message.",
     "parameters": [
@@ -65,6 +73,14 @@ sw_create = {
 sw_list = {
     "tags": ["API Endpoints"],
     "summary": "List all companies",
+    "securityDefinitions": {
+        "basicAuth": {
+            "type": "basic"
+        }
+    },
+    "security": [{
+        "basicAuth": []
+    }],
     "description": "Get a list of all companies, with support for pagination, "
                    "ordering and limiting the number of records per page.",
     "parameters": [
@@ -127,6 +143,14 @@ sw_list = {
 sw_edit = {
     "tags": ["API Endpoints"],
     "summary": "Edit an existing company",
+    "securityDefinitions": {
+        "basicAuth": {
+            "type": "basic"
+        }
+    },
+    "security": [{
+        "basicAuth": []
+    }],
     "description": "Receives a JSON with the CNPJ of the company to edit and the new "
                    "trade name and/or CNAE, validates the information and updates "
                    "the company in the database. Returns a JSON with a success or error message.",
@@ -187,6 +211,14 @@ sw_edit = {
 sw_delete = {
     "tags": ["API Endpoints"],
     "summary": "Delete an existing company",
+    "securityDefinitions": {
+        "basicAuth": {
+            "type": "basic"
+        }
+    },
+    "security": [{
+        "basicAuth": []
+    }],
     "description": "Receives a JSON with the CNPJ of the company to delete, validates the CNPJ and "
                    "deletes the company from the database. Returns a JSON with a success or error message.",
     "parameters": [
