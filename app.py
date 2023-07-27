@@ -50,7 +50,7 @@ def create():
 
     try:
         company.save()
-        return make_response({'success': 'Company created!'}, 200)
+        return make_response({'success': 'Company created!'}, 201)
     except SQLAlchemyError as err:
         error = str(err.__cause__)
         return make_response({'error': f'Error creating company {error}!'}, 400)

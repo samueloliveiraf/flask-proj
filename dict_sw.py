@@ -43,7 +43,7 @@ sw_create = {
         }
     ],
     "responses": {
-        "200": {
+        "201": {
             "description": "Company successfully created",
             "schema": {
                 "id": "success_response",
