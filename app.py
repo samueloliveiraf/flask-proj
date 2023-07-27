@@ -3,6 +3,9 @@ from flask import Flask, make_response, request
 from sqlalchemy.exc import SQLAlchemyError
 from flask_migrate import Migrate
 
+from flask_cors import cross_origin
+from flask_cors import CORS
+
 from flasgger import Swagger, swag_from
 from decouple import config
 
@@ -22,6 +25,7 @@ def create_app():
     app_conf = Flask(__name__)
     app_conf.config['SQLALCHEMY_DATABASE_URI'] = config('SQLALCHEMY_DATABASE_URI')
     Swagger(app_conf)
+    CORS(app_conf)
 
     db.init_app(app_conf)
     Migrate(app_conf, db)
@@ -58,6 +62,7 @@ def create():
 
 @app.route('/api/list/', methods=['GET'])
 @swag_from(sw_list)
+@cross_origin()
 @auth.login_required
 def list_companies():
     page = request.args.get('page', 1, type=int)
