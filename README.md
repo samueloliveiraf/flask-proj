@@ -5,7 +5,7 @@
 <br>
 
 ## Documentation swagger API
-### api = /apidocs/
+### https://api-test-estracta.aplicacao-tech.com.br/apidocs/
 
 <br>
 
