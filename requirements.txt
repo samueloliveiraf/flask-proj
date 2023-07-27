@@ -4,6 +4,7 @@ Flask-Migrate==4.0.4
 Flask-HTTPAuth==4.8.0
 flask-paginate==2022.1.8
 flasgger==0.9.7.1
+gunicorn==21.2.0
 psycopg2-binary==2.9.6
 python-decouple==3.8
 SQLAlchemy==1.4.41
