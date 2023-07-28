@@ -98,7 +98,7 @@ sw_list = {
             "type": "integer",
             "required": False,
             "description": "Number of records per page.",
-            "default": 10
+            "default": 25
         },
         {
             "name": "order",
